@@ -71,15 +71,16 @@
         public bool Search(int rollNo, ref Node previous, ref Node current)
             /*Searches for the specified node*/
         {
-            for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
+            previous = LAST;
+            current = LAST;
+            while ((current != null) && (rollNo != current.rollNumber))
             {
-                if (rollNo == current.rollNumber)
-                    return true;/*return true if the node is found*/
+                previous = current;
+                current = current.next;
             }
-            if (rollNo == LAST.rollNumber)/*if the node is present at the end*/
-                return true;
-            else
-                return (false);/*returns false if the node is not found*/
+            if (current == null)
+                return false;
+            else return true;
         }
         public bool listEmpty()
         {
