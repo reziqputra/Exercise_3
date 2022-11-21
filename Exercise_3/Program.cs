@@ -5,6 +5,6 @@
         /*creates Nodes for the circular nexted list*/
         public int rollNumber;
         public string name;
-
+        public Node next;
     }
 }
